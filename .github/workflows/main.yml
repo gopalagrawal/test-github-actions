@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -27,43 +27,11 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: sh ./github-actions-script.sh
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo What is in this directory ?
+          echo Nothing in multi-line script. 
+          echo Here is what is in the folder: 
           ls -a
-          echo
-          
-          echo Is Java installed ? 
-          java -version
-          echo
-          
-          echo Is Git installed ? 
-          git --version
-          echo
-          
-          echo Which build tools exist ? 
-          mvn --version
-          gradle --version
-          ant -version
-          echo
-          
-          echo Where is Android SDK Root?
-          echo $ANDROID_SDK_ROOT
-          
-          echo where is Selenium Jars?
-          echo $SELENIUM_JAR_PATH
-          
-          echo where is workspace? 
-          echo $RUNNER_WORKSPACE
-          
-          echo who am i?
-          whoami
-          
-          echo Disc Layout
-          df
-          
-          echo Environment Vars
-          env
